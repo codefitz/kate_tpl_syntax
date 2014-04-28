@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE language>
-<!-- Python syntax highlightning v0.1 by Wes Fitzpatrick -->
+<!-- TPL syntax highlightning v0.1 by Wes Fitzpatrick -->
 <language name="ADDM TPL" version="2.22" style="ADDM TPL" kateversion="2.4" section="Scripts" extensions="*.tpl" mimetype="" casesensitive="1" author="Wes Fitzpatrick" license="">
     <highlighting>
 	<list name="addm keywords">
@@ -138,7 +138,6 @@
                 <Int attribute="Int" context="#stay">
                     <StringDetect attribute="Int" String="L" insensitive="true" context="#stay" />
                 </Int>
-		<!--<DetectChar attribute="Normal Text" char="{" context="Dictionary" beginRegion="Dictionary" />-->
                 <DetectChar attribute="Normal Text" char="[" context="List" beginRegion="List" />
                 <DetectChar attribute="Normal Text" char="(" context="Tuple" beginRegion="Tuple" />
                 <IncludeRules context="CommentVariants" />
@@ -161,69 +160,19 @@
 
             <context name="StringVariants" attribute="Normal Text" lineEndContext="#stay">
                 <DetectSpaces/>
-                <!-- ''' -->
                 <StringDetect attribute="String" String="'''" context="Tripple A-string" beginRegion="Tripple A-region" />
-                <!--<StringDetect attribute="String" String="u'''" insensitive="true" context="Tripple A-string" beginRegion="Tripple A-region" />-->
-                <!-- """ -->
                 <StringDetect attribute="String" String="&quot;&quot;&quot;" context="Tripple Q-string" beginRegion="Tripple Q-region" />
-                <!--<StringDetect attribute="String" String="u&quot;&quot;&quot;" insensitive="true" context="Tripple Q-string" beginRegion="Tripple Q-region" />-->
-                <!-- ' -->
                 <DetectChar attribute="String" char="'" context="Single A-string" />
-                <!--<Detect2Chars attribute="String" char="u" char1="'" insensitive="true" context="Single A-string" />-->
-                <!-- " -->
                 <DetectChar attribute="String" char="&quot;" context="Single Q-string" />
-                <!--<Detect2Chars attribute="String" char="u" char1="&quot;" insensitive="true" context="Single Q-string" />-->
-
-                <!-- ''' -->
-                <!--<StringDetect attribute="Raw String" String="r'''" insensitive="true" context="Raw Tripple A-string" beginRegion="Tripple A-region" />-->
-                <!--<StringDetect attribute="Raw String" String="ur'''" insensitive="true" context="Raw Tripple A-string" beginRegion="Tripple A-region" />-->
-                <!-- """ -->
-                <!--<StringDetect attribute="Raw String" String="r&quot;&quot;&quot;" insensitive="true" context="Raw Tripple Q-string" beginRegion="Tripple Q-region" />-->
-                <!--<StringDetect attribute="Raw String" String="ur&quot;&quot;&quot;" insensitive="true" context="Raw Tripple Q-string" beginRegion="Tripple Q-region" />-->
-                <!-- ' -->
-                <!--<StringDetect attribute="Raw String" String="r'" insensitive="true" context="Raw A-string" />-->
-                <!--<StringDetect attribute="Raw String" String="ur'" insensitive="true" context="Raw A-string" />-->
-                <!-- " -->
-                <!--<StringDetect attribute="Raw String" String="r&quot;" insensitive="true" context="Raw Q-string" />-->
-                <!--<StringDetect attribute="Raw String" String="ur&quot;" insensitive="true" context="Raw Q-string" />-->
             </context>
 
             <context name="CommentVariants" attribute="Normal Text" lineEndContext="#stay">
                 <DetectSpaces/>
-                <!-- ''' -->
                 <StringDetect attribute="Comment" String="'''" firstNonSpace="true" context="Tripple A-comment" beginRegion="Tripple A-region" />
-                <!--<StringDetect attribute="Comment" String="u'''" insensitive="true" firstNonSpace="true" context="Tripple A-comment" beginRegion="Tripple A-region" />-->
-                <!-- """ -->
                 <StringDetect attribute="Comment" String="&quot;&quot;&quot;" firstNonSpace="true" context="Tripple Q-comment" beginRegion="Tripple Q-region" />
-                <!--<StringDetect attribute="Comment" String="u&quot;&quot;&quot;" insensitive="true" firstNonSpace="true" context="Tripple Q-comment" beginRegion="Tripple Q-region" />-->
-                <!-- ' -->
                 <DetectChar attribute="Comment" char="'" firstNonSpace="true" context="Single A-comment" />
-                <!--<Detect2Chars attribute="Comment" char="u" char1="'" insensitive="true" firstNonSpace="true" context="Single A-comment" />-->
-                <!-- " -->
                 <DetectChar attribute="Comment" char="&quot;" firstNonSpace="true" context="Single Q-comment" />
-                <!--<Detect2Chars attribute="Comment" char="u" char1="&quot;" insensitive="true" firstNonSpace="true" context="Single Q-comment" />-->
-
-                <!-- ''' -->
-                <!--<StringDetect attribute="Comment" String="r'''" insensitive="true" firstNonSpace="true" context="Tripple A-comment" beginRegion="Tripple A-region" />
-                <StringDetect attribute="Comment" String="ur'''" insensitive="true" firstNonSpace="true" context="Tripple A-comment" beginRegion="Tripple A-region" />-->
-                <!-- """ -->
-                <!--<StringDetect attribute="Comment" String="r&quot;&quot;&quot;" insensitive="true" firstNonSpace="true" context="Tripple Q-comment" beginRegion="Tripple Q-region" />
-                <StringDetect attribute="Comment" String="ur&quot;&quot;&quot;" insensitive="true" firstNonSpace="true" context="Tripple Q-comment" beginRegion="Tripple Q-region" />-->
-                <!-- ' -->
-                <!--<StringDetect attribute="Comment" String="r'" insensitive="true" firstNonSpace="true" context="Single A-comment" />
-                <StringDetect attribute="Comment" String="ur'" insensitive="true" firstNonSpace="true" context="Single A-comment" />-->
-                <!-- " -->
-                <!--<StringDetect attribute="Comment" String="r&quot;" insensitive="true" firstNonSpace="true" context="Single Q-comment" />
-                <StringDetect attribute="Comment" String="ur&quot;" insensitive="true" firstNonSpace="true" context="Single Q-comment" />-->
             </context>
-
-            <!--<context name="Dictionary" attribute="Normal Text" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <DetectSpaces/>
-                <DetectChar attribute="Normal Text" char="}" context="#pop" endRegion="Dictionary" />
-                <IncludeRules context="StringVariants" />
-                <IncludeRules context="Normal" />
-                </context>-->
-
             <context name="List" attribute="Normal Text" lineEndContext="#stay" noIndentationBasedFolding="true">
                 <DetectSpaces/>
                 <DetectChar attribute="Normal Text" char="]" context="#pop" endRegion="List" />
@@ -237,8 +186,6 @@
                 <IncludeRules context="StringVariants" />
                 <IncludeRules context="Normal" />
             </context>
-
-            <!-- Comments -->
 
             <context name="Hash comment" attribute="Comment" lineEndContext="#pop">
                 <IncludeRules context="##Alerts" />
@@ -268,7 +215,6 @@
                 <IncludeRules context="##Alerts_indent" />
             </context>
 
-            <!-- format characters -->
             <context name="stringformat" attribute="String Substitution" lineEndContext="#stay">
 
                 <RegExpr attribute="String Substitution" String="%((\([a-zA-Z0-9_]+\))?[#0\- +]?([1-9][0-9]*|\*)?(\.([1-9][0-9]*|\*))?[hlL]?[crsdiouxXeEfFgG%]|prog|default)" context="#stay" />
@@ -283,24 +229,11 @@
                 <StringDetect attribute="String" String="'''" context="#pop#CheckForString" endRegion="Tripple A-region" />
             </context>
 
-            <!--<context name="Raw Tripple A-string" attribute="Raw String" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <HlCStringChar attribute="Raw String" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <StringDetect attribute="String" String="'''" context="#pop#CheckForString" endRegion="Tripple A-region" />
-                </context>-->
-
             <context name="Tripple Q-string" attribute="String" lineEndContext="#stay" noIndentationBasedFolding="true">
                 <HlCStringChar attribute="String Char" context="#stay" />
                 <IncludeRules context="stringformat" />
                 <StringDetect attribute="String" String="&quot;&quot;&quot;" context="#pop#CheckForString" endRegion="Tripple Q-region" />
             </context>
-
-            <!--<context name="Raw Tripple Q-string" attribute="Raw String" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <HlCStringChar attribute="Raw String" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <StringDetect attribute="String" String="&quot;&quot;&quot;" context="#pop#CheckForString" endRegion="Tripple Q-region" />
-                </context>-->
-
 
             <context name="Single A-string" attribute="String" lineEndContext="#stay">
                 <HlCStringChar attribute="String Char" context="#stay" />
@@ -314,17 +247,6 @@
                 <DetectChar attribute="String" char="&quot;" context="#pop#CheckForString" />
             </context>
 
-            <!--<context name="Raw A-string" attribute="Raw String" lineEndContext="#stay">
-                <HlCStringChar attribute="Raw String" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <DetectChar attribute="Raw String" char="'" context="#pop#CheckForString" />
-                </context>-->
-
-            <!--<context name="Raw Q-string" attribute="Raw String" lineEndContext="#stay">
-                <HlCStringChar attribute="Raw String" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <DetectChar attribute="Raw String" char="&quot;" context="#pop#CheckForString" />
-                </context>-->
         </contexts>
 
         <itemDatas>
@@ -339,7 +261,6 @@
             <itemData name="Complex" defStyleNum="dsOthers" spellChecking="false" />
             <itemData name="Comment" defStyleNum="dsComment" />
             <itemData name="String" defStyleNum="dsString" />
-            <!--<itemData name="Raw String" defStyleNum="dsString" />-->
             <itemData name="Decorator" defStyleNum="dsOthers" color="#8f6b32" selColor="#8f6b32" italic="0" spellChecking="false" />
         </itemDatas>
     </highlighting>
@@ -355,5 +276,3 @@
         <keywords casesensitive="1" />
     </general>
 </language>
-
-<!-- kate: space-indent off; indent-width 4; -->
