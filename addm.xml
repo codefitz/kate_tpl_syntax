@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE language>
-<!-- TPL syntax highlightning v0.1 by Wes Fitzpatrick -->
-<language name="ADDM TPL" version="2.22" style="ADDM TPL" kateversion="2.4" section="Scripts" extensions="*.tpl" mimetype="" casesensitive="1" author="Wes Fitzpatrick" license="">
+<!-- TPL syntax highlightning by Wes Fitzpatrick -->
+<!-- Change History -->
+<!-- v0.1 - Created -->
+<!-- v0.2 - Added lists for functions and nodes; fixed string interpolation; special TPL character highlighting added. -->
+<language name="ADDM TPL" version="0.2" style="ADDM TPL" kateversion="2.4" section="Scripts" extensions="*.tpl" mimetype="" casesensitive="1" author="Wes Fitzpatrick" license="">
     <highlighting>
-	<list name="addm keywords">
+	<list name="keywords">
             <item>import</item>
             <item>from</item>
             <item>as</item>
@@ -16,23 +19,11 @@
             <item>by</item>
             <item>constants</item>
             <item>continue</item>
-            <item>created</item>
             <item>default</item>
             <item>defined</item>
             <item>deleted</item>
             <item>desc</item>
-            <item>discovery.access</item>
-            <item>discovery.allProcesses</item>
-            <item>discovery.children</item>
-            <item>discovery.descendents</item>
-            <item>discovery.fileGet</item>
-            <item>discovery.parent</item>
-            <item>discovery.process</item>
-            <item>discovery.registryKey</item>
-            <item>discovery.runCommand</item>
-            <item>discovery.snmpGet</item>
-            <item>discovery.snmpGetTable</item>
-            <item>discovery.wmiQuery</item>
+	    <item>discovery</item>
             <item>do</item>
             <item>elif</item>
             <item>else</item>
@@ -49,38 +40,21 @@
             <item>if</item>
             <item>import</item>
             <item>in</item>
-            <item>inference.associate</item>
-            <item>inference.contributor</item>
-            <item>inference.destruction</item>
-            <item>inference.primary</item>
-            <item>inference.relation</item>
-            <item>inference.withdrawl</item>
+	    <item>inference</item>
             <item>is</item>
             <item>locale</item>
-            <item>log.critical</item>
-            <item>log.debug</item>
-            <item>log.error</item>
-            <item>log.info</item>
-            <item>log.warn</item>
-            <item>mail.send</item>
+	    <item>log</item>
+	    <item>mail</item>
             <item>matches</item>
             <item>metadata</item>
-            <item>model.</item>
-            <item>model.addContainment</item>
-            <item>model.destroy</item>
-            <item>model.findPackages</item>
-            <item>model.host</item>
-            <item>model.hosts</item>
-            <item>model.rel.</item>
-            <item>model.setContainment</item>
-            <item>model.withdraw</item>
+            <item>model</item>
             <item>modified</item>
             <item>module</item>
             <item>nodecount</item>
             <item>nodes</item>
             <item>none</item>
             <item>not</item>
-            <item>number.toText</item>
+	    <item>number</item>
             <item>on</item>
             <item>or</item>
             <item>order</item>
@@ -91,8 +65,7 @@
             <item>processwith</item>
             <item>raw</item>
             <item>regex</item>
-            <item>regex.extract</item>
-            <item>regex.extractAll</item>
+	    <item>regex</item>
             <item>relationship</item>
             <item>removal</item>
             <item>requires</item>
@@ -107,14 +80,7 @@
             <item>table</item>
             <item>tags</item>
             <item>taxonomy</item>
-            <item>text.hash</item>
-            <item>text.leftStrip</item>
-            <item>text.lower</item>
-            <item>text.replace</item>
-            <item>text.rightStrip</item>
-            <item>text.split</item>
-            <item>text.strip</item>
-            <item>text.upper</item>
+	    <item>text</item>
             <item>then</item>
             <item>tpl</item>
             <item>traverse</item>
@@ -125,26 +91,115 @@
             <item>where</item>
             <item>windows_cmd</item>
             <item>with</item>
-            <item>xpath.evaluate</item>
+	    <item>xpath</item>
         </list>
+	<list name="functions">
+	  <item>created</item>
+	  <item>confirmed</item>
+	  <item>evaluate</item>
+	  <item>hash</item>
+          <item>leftStrip</item>
+          <item>lower</item>
+          <item>replace</item>
+          <item>rightStrip</item>
+          <item>split</item>
+          <item>strip</item>
+          <item>upper</item>
+	  <item>extract</item>
+          <item>extractAll</item>
+	  <item>toText</item>
+	  <item>addContainment</item>
+          <item>destroy</item>
+          <item>findPackages</item>
+          <item>rel</item>
+          <item>setContainment</item>
+          <item>withdraw</item>
+	  <item>send</item>
+	  <item>critical</item>
+          <item>debug</item>
+          <item>error</item>
+          <item>info</item>
+          <item>warn</item>
+	  <item>associate</item>
+          <item>contributor</item>
+          <item>destruction</item>
+          <item>primary</item>
+          <item>relation</item>
+          <item>withdrawl</item>
+	  <item>access</item>
+          <item>allProcesses</item>
+          <item>children</item>
+          <item>descendents</item>
+          <item>fileGet</item>
+          <item>parent</item>
+          <item>process</item>
+          <item>registryKey</item>
+          <item>runCommand</item>
+          <item>snmpGet</item>
+          <item>snmpGetTable</item>
+          <item>wmiQuery</item>
+	  <item>fileInfo</item>
+	  <item>host</item>
+	  <item>uniquerel</item>
+	</list>
+	<list name="nodes">
+	  <item>Host</item>
+	  <item>DiscoveredProcess</item>
+	  <item>SoftwareInstance</item>
+	  <item>BusinessApplicationInstance</item>
+	  <item>FunctionalComponent</item>
+	  <item>SoftwareComponent</item>
+	  <item>Mainframe</item>
+	  <item>MFPart</item>
+	  <item>CouplingFacility</item>
+	  <item>Cluster</item>
+	  <item>File</item>
+	  <item>FileSystem</item>
+	  <item>Package</item>
+	  <item>Patch</item>
+	  <item>FiberChannel</item>
+	  <item>NetworkDevice</item>
+	  <item>Printer</item>
+	  <item>IPAddress</item>
+	  <item>NetworkInterface</item>
+	  <item>Subnet</item>
+	  <item>Detail</item>
+	  <item>DatabaseDetail</item>
+	  <item>Storage</item>
+	  <item>StorageCollection</item>
+	  <item>GenericElement</item>
+	  <item>RuntimeEnvironment</item>
+	  <item>DeviceInfo</item>
+	  <item>ElementWithDetail</item>
+	  <item>Location</item>
+	  <item>DiscoveryAccess</item>
+	  <item>ElementInLocation</item>
+	  <item>Dependency</item>
+	  <item>DependedUpon</item>
+	</list>
         <contexts>
             <context name="Normal" attribute="Normal Text" lineEndContext="#stay">
-                <keyword attribute="ADDM Keywords" String="addm keywords" context="#stay" />
-                <RegExpr attribute="Normal" String="[a-zA-Z_][a-zA-Z_0-9]{2,}" context="#stay" />
-                <RegExpr attribute="Complex" String=" ((([0-9]*\.[0-9]+|[0-9]+\.)|([0-9]+|([0-9]*\.[0-9]+|[0-9]+\.))[eE](\+|-)?[0-9]+)|[0-9]+)[jJ]" context="#stay" />
-                <Float attribute="Float" context="#stay" />
+	        <keyword attribute="Keywords" String="keywords" context="#stay" />
+		<keyword attribute="Functions" String="functions" context="#stay" />
+		<keyword attribute="Nodes" String="nodes" context="#stay" />
+                
+                <DetectChar attribute="Normal Text" char="[" context="List" beginRegion="List" />
+                <DetectChar attribute="Normal Text" char="(" context="Group" beginRegion="Group" />
+                
+                <IncludeRules context="CommentVariants" />
+                
+                <Detect2Chars attribute="Comment" char="/" char1="/" context="single comment" lookAhead="true" />
+                
+                <IncludeRules context="StringVariants" />
+                
+                <Detect2Chars attribute="Special" char=":" char1="=" context="#pop" />
+                <DetectChar attribute="Special" char=";" context="#pop" />
+                <Detect2Chars attribute="Special" char="-" char1=">" context="#pop" />
+		
+		<Float attribute="Float" context="#stay" />
                 <HlCHex attribute="Hex" context="#stay" />
                 <HlCOct attribute="Octal" context="#stay" />
-                <Int attribute="Int" context="#stay">
-                    <StringDetect attribute="Int" String="L" insensitive="true" context="#stay" />
-                </Int>
-                <DetectChar attribute="Normal Text" char="[" context="List" beginRegion="List" />
-                <DetectChar attribute="Normal Text" char="(" context="Tuple" beginRegion="Tuple" />
-                <IncludeRules context="CommentVariants" />
-                <Detect2Chars attribute="Comment" char="/" char1="/" context="Hash comment" lookAhead="true" />
-                <IncludeRules context="StringVariants" />
-                <AnyChar attribute="Operator" String="+*/%\|=;\!&lt;&gt;!^&amp;~-" context="#stay" />
-                <RegExpr attribute="Decorator" String="@[_a-zA-Z][\._a-zA-Z0-9]*" firstNonSpace="true" />
+                <Int attribute="Int" context="#stay" />
             </context>
 
             <context name="#CheckForString" attribute="Normal Text" lineEndContext="#pop" fallthrough="true" fallthroughContext="#pop">
@@ -160,18 +215,16 @@
 
             <context name="StringVariants" attribute="Normal Text" lineEndContext="#stay">
                 <DetectSpaces/>
-                <StringDetect attribute="String" String="'''" context="Tripple A-string" beginRegion="Tripple A-region" />
-                <StringDetect attribute="String" String="&quot;&quot;&quot;" context="Tripple Q-string" beginRegion="Tripple Q-region" />
-                <DetectChar attribute="String" char="'" context="Single A-string" />
-                <DetectChar attribute="String" char="&quot;" context="Single Q-string" />
+                <DetectChar attribute="String" char="'" context="Apos String" />
+                <DetectChar attribute="String" char="&quot;" context="Quote String" />
             </context>
 
             <context name="CommentVariants" attribute="Normal Text" lineEndContext="#stay">
                 <DetectSpaces/>
-                <StringDetect attribute="Comment" String="'''" firstNonSpace="true" context="Tripple A-comment" beginRegion="Tripple A-region" />
-                <StringDetect attribute="Comment" String="&quot;&quot;&quot;" firstNonSpace="true" context="Tripple Q-comment" beginRegion="Tripple Q-region" />
-                <DetectChar attribute="Comment" char="'" firstNonSpace="true" context="Single A-comment" />
-                <DetectChar attribute="Comment" char="&quot;" firstNonSpace="true" context="Single Q-comment" />
+                <StringDetect attribute="Comment" String="'''" firstNonSpace="true" context="Tripple Apostrophes" beginRegion="Tripple Apos Region" />
+                <StringDetect attribute="Comment" String="&quot;&quot;&quot;" firstNonSpace="true" context="Tripple Quotes" beginRegion="Tripple Quote Region" />
+                <DetectChar attribute="Comment" char="'" firstNonSpace="true" context="Apos Comment" />
+                <DetectChar attribute="Comment" char="&quot;" firstNonSpace="true" context="Quote Comment" />
             </context>
             <context name="List" attribute="Normal Text" lineEndContext="#stay" noIndentationBasedFolding="true">
                 <DetectSpaces/>
@@ -180,94 +233,76 @@
                 <IncludeRules context="Normal" />
             </context>
 
-            <context name="Tuple" attribute="Normal Text" lineEndContext="#stay" noIndentationBasedFolding="true">
+            <context name="Group" attribute="Normal Text" lineEndContext="#stay" noIndentationBasedFolding="true">
                 <DetectSpaces/>
-                <DetectChar attribute="Normal Text" char=")" context="#pop" endRegion="Tuple" />
+                <DetectChar attribute="Normal Text" char=")" context="#pop" endRegion="Group" />
                 <IncludeRules context="StringVariants" />
                 <IncludeRules context="Normal" />
             </context>
 
-            <context name="Hash comment" attribute="Comment" lineEndContext="#pop">
+            <context name="single comment" attribute="Comment" lineEndContext="#pop">
                 <IncludeRules context="##Alerts" />
                 <IncludeRules context="##Modelines" />
             </context>
 
-            <context name="Tripple A-comment" attribute="Comment" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <StringDetect attribute="Comment" String="'''" context="#pop" endRegion="Tripple A-region" />
+            <context name="Tripple Apostrophes" attribute="Comment" lineEndContext="#stay" noIndentationBasedFolding="true">
+                <StringDetect attribute="Comment" String="'''" context="#pop" endRegion="Tripple Apos Region" />
                 <IncludeRules context="##Alerts_indent" />
             </context>
 
-            <context name="Tripple Q-comment" attribute="Comment" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <HlCChar attribute="Comment" context="#stay" />
-                <StringDetect attribute="Comment" String="&quot;&quot;&quot;" context="#pop" endRegion="Tripple Q-region" />
+            <context name="Tripple Quotes" attribute="Comment" lineEndContext="#stay" noIndentationBasedFolding="true">
+                <StringDetect attribute="Comment" String="&quot;&quot;&quot;" context="#pop" endRegion="Tripple Quote Region" />
                 <IncludeRules context="##Alerts_indent" />
             </context>
 
-            <context name="Single A-comment" attribute="Comment" lineEndContext="#stay">
-                <HlCStringChar attribute="Comment" context="#stay" />
+            <context name="Apos Comment" attribute="Comment" lineEndContext="#stay">
                 <DetectChar attribute="Comment" char="'" context="#pop" />
                 <IncludeRules context="##Alerts_indent" />
             </context>
 
-            <context name="Single Q-comment" attribute="Comment" lineEndContext="#stay">
-                <HlCStringChar attribute="Comment" context="#stay" />
+            <context name="Quote Comment" attribute="Comment" lineEndContext="#stay">
                 <DetectChar attribute="Comment" char="&quot;" context="#pop" />
                 <IncludeRules context="##Alerts_indent" />
             </context>
 
-            <context name="stringformat" attribute="String Substitution" lineEndContext="#stay">
-
-                <RegExpr attribute="String Substitution" String="%((\([a-zA-Z0-9_]+\))?[#0\- +]?([1-9][0-9]*|\*)?(\.([1-9][0-9]*|\*))?[hlL]?[crsdiouxXeEfFgG%]|prog|default)" context="#stay" />
-                <RegExpr attribute="String Substitution" String="\{([a-zA-Z0-9_]+|[0-9]+)(\.[a-zA-Z0-9_]+|\[[^ \]]+\])*(![rs])?(:([^}]?[&lt;&gt;=^])?[ +-]?#?0?[0-9]*(\.[0-9]+)?[bcdeEfFgGnosxX%]?)?\}" context="#stay" />
-                <Detect2Chars attribute="String Substitution" char="{" char1="{" context="#stay" />
-                <Detect2Chars attribute="String Substitution" char="}" char1="}" context="#stay" />
+            <context name="stringformat" attribute="Interpolation" lineEndContext="#stay">
+	      <RegExpr attribute="Interpolation" String="%[a-zA-Z0-9_\.]+%" context="#stay" />
             </context>
-
-            <context name="Tripple A-string" attribute="String" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <HlCStringChar attribute="String Char" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <StringDetect attribute="String" String="'''" context="#pop#CheckForString" endRegion="Tripple A-region" />
-            </context>
-
-            <context name="Tripple Q-string" attribute="String" lineEndContext="#stay" noIndentationBasedFolding="true">
-                <HlCStringChar attribute="String Char" context="#stay" />
-                <IncludeRules context="stringformat" />
-                <StringDetect attribute="String" String="&quot;&quot;&quot;" context="#pop#CheckForString" endRegion="Tripple Q-region" />
-            </context>
-
-            <context name="Single A-string" attribute="String" lineEndContext="#stay">
-                <HlCStringChar attribute="String Char" context="#stay" />
-                <IncludeRules context="stringformat" />
+            
+            <context name="Apos String" attribute="String" lineEndContext="#stay">
+	        <IncludeRules context="stringformat" />
                 <DetectChar attribute="String" char="'" context="#pop#CheckForString" />
             </context>
 
-            <context name="Single Q-string" attribute="String" lineEndContext="#stay">
-                <HlCStringChar attribute="String Char" context="#stay" />
-                <IncludeRules context="stringformat" />
+            <context name="Quote String" attribute="String" lineEndContext="#stay">
+	        <IncludeRules context="stringformat" />
                 <DetectChar attribute="String" char="&quot;" context="#pop#CheckForString" />
             </context>
 
         </contexts>
 
         <itemDatas>
-            <itemData name="Normal Text" defStyleNum="dsNormal" spellChecking="false" />
-            <itemData name="ADDM Keywords" defStyleNum="dsKeyword" spellChecking="false" />
-            <itemData name="String Substitution" defStyleNum="dsOthers" color="#0057ae" selColor="#0057ae" spellChecking="false" />
+            <itemData name="Normal Text" defStyleNum="dsNormal" spellChecking="true" />
+            <itemData name="Keywords" defStyleNum="dsKeyword" color="#196C35" spellChecking="true" />
+            <itemData name="Functions" defStyleNum="dsFunction" color="#29A629" spellChecking="true" italic="false" />
+            <itemData name="Nodes" defStyleNum="dsFunction" color="#CC0099" spellChecking="true" italic="false" />
+            <itemData name="Interpolation" defStyleNum="dsString" bold="true" spellChecking="false" />
+            
             <itemData name="String Char" defStyleNum="dsChar" spellChecking="false" />
+            <itemData name="Comment" defStyleNum="dsComment" italic="true" />
+            <itemData name="Special" defStyleNum="dsOthers" color="#FF3300" bold="true" />
+            <itemData name="String" defStyleNum="dsString" />
+            
             <itemData name="Float" defStyleNum="dsFloat" spellChecking="false" />
             <itemData name="Int" defStyleNum="dsDecVal" spellChecking="false" />
             <itemData name="Hex" defStyleNum="dsBaseN" spellChecking="false" />
             <itemData name="Octal" defStyleNum="dsBaseN" spellChecking="false" />
-            <itemData name="Complex" defStyleNum="dsOthers" spellChecking="false" />
-            <itemData name="Comment" defStyleNum="dsComment" />
-            <itemData name="String" defStyleNum="dsString" />
-            <itemData name="Decorator" defStyleNum="dsOthers" color="#8f6b32" selColor="#8f6b32" italic="0" spellChecking="false" />
         </itemDatas>
     </highlighting>
     <general>
         <folding indentationsensitive="0" />
         <emptyLines>
-            <emptyLine regexpr="(?:\s+|\s*#.*)" />
+            <emptyLine regexpr="(?:\s+|\s*//.*)" />
         </emptyLines>
         <comments>
             <comment name="singleLine" start="//" />
